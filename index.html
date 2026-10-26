@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1220" />
+  <meta name="description" content="Cybersecurity portfolio of an aspiring SOC Analyst focused on blue-team labs, SIEM, threat intelligence, and digital forensics." />
+  <title>Rihan Chauhan | Cybersecurity Portfolio</title>
+  <style>
+    :root {
+      --bg: #08111f;
+      --panel: #101d2d;
+      --panel-2: #142438;
+      --text: #edf5f7;
+      --muted: #a6b8c5;
+      --teal: #5ce1c2;
+      --teal-dark: #1c9e8a;
+      --border: rgba(157, 190, 203, .18);
+      --amber: #f5c36a;
+      --blue: #8bb9ff;
+      --radius: 18px;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 80% 0%, rgba(29, 131, 123, .15), transparent 38rem),
+        radial-gradient(ellipse at 0% 25%, rgba(55, 102, 157, .12), transparent 35rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: var(--teal); text-decoration: none; }
+    a:hover { color: #a1f4e3; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .nav-wrap {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(8, 17, 31, .88); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 11px; color: var(--text); font-weight: 750; letter-spacing: -.02em; }
+    .brand-mark {
+      display: grid; place-items: center; width: 38px; height: 38px;
+      border: 1px solid rgba(92, 225, 194, .4); border-radius: 12px;
+      color: var(--teal); background: rgba(92, 225, 194, .08); font-size: 18px;
+    }
+    .nav-links { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .nav-links a { color: var(--muted); font-size: .91rem; }
+    .nav-links a:hover { color: var(--teal); }
+    .menu-toggle { display: none; background: transparent; color: var(--text); border: 1px solid var(--border); border-radius: 10px; padding: 8px 11px; }
+    .hero { padding: 92px 0 72px; }
+    .eyebrow { color: var(--teal); font-size: .82rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .hero-grid { display: grid; grid-template-columns: 1.4fr .8fr; gap: 55px; align-items: center; }
+    h1 { font-size: clamp(2.7rem, 6vw, 5.3rem); line-height: 1.02; letter-spacing: -.055em; margin: 16px 0 22px; }
+    h1 span { color: var(--teal); }
+    .lead { max-width: 680px; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.2rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 8px; padding: 12px 17px; border-radius: 12px; border: 1px solid var(--border); font-weight: 750; }
+    .btn-primary { background: var(--teal); color: #06221e; border-color: var(--teal); }
+    .btn-primary:hover { background: #a1f4e3; color: #06221e; }
+    .btn-secondary { color: var(--text); background: rgba(255,255,255,.025); }
+    .status-card { border: 1px solid var(--border); border-radius: 22px; padding: 25px; background: linear-gradient(145deg, rgba(20,36,56,.96), rgba(12,24,39,.96)); box-shadow: 0 25px 75px rgba(0,0,0,.2); }
+    .terminal-top { display: flex; align-items: center; gap: 7px; padding-bottom: 18px; border-bottom: 1px solid var(--border); color: var(--muted); font: .8rem ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #ff7676; }
+    .dot:nth-child(2) { background: var(--amber); } .dot:nth-child(3) { background: var(--teal); }
+    .terminal-body { padding-top: 16px; font: .9rem/1.9 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .terminal-body .prompt { color: var(--teal); }
+    .terminal-body .comment { color: #8399a9; }
+    .terminal-body .value { color: #c9dafa; }
+    section { padding: 64px 0; }
+    .section-head { max-width: 720px; margin-bottom: 28px; }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.65rem); letter-spacing: -.04em; line-height: 1.15; margin: 10px 0 13px; }
+    .section-desc { color: var(--muted); margin: 0; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .card { padding: 22px; border: 1px solid var(--border); border-radius: var(--radius); background: rgba(16,29,45,.78); }
+    .card h3 { margin: 10px 0 8px; font-size: 1.1rem; line-height: 1.35; }
+    .card p { color: var(--muted); margin: 0; font-size: .95rem; }
+    .icon-box { display: grid; place-items: center; width: 43px; height: 43px; border-radius: 13px; color: var(--teal); background: rgba(92,225,194,.09); border: 1px solid rgba(92,225,194,.16); font-size: 1.15rem; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+    .tag { padding: 5px 9px; border: 1px solid var(--border); border-radius: 999px; color: #c8d8e1; font-size: .76rem; }
+    .status { display: inline-flex; align-items: center; gap: 7px; border-radius: 999px; padding: 5px 9px; font-size: .73rem; font-weight: 800; letter-spacing: .02em; }
+    .status.done { color: #a8f2df; background: rgba(92,225,194,.1); }
+    .status.progress { color: #ffdda0; background: rgba(245,195,106,.1); }
+    .status.project { color: #b9d2ff; background: rgba(139,185,255,.1); }
+    .skills-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+    .skill-line { display: flex; justify-content: space-between; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .skill-line:last-child { border-bottom: 0; }
+    .skill-line span:first-child { color: var(--text); }
+    .skill-line span:last-child { color: var(--muted); font-size: .85rem; text-align: right; }
+    .timeline { display: grid; gap: 14px; }
+    .timeline-item { display: grid; grid-template-columns: 24px 1fr; gap: 15px; }
+    .timeline-mark { display: flex; flex-direction: column; align-items: center; }
+    .timeline-mark span { width: 11px; height: 11px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 5px rgba(92,225,194,.1); margin-top: 7px; }
+    .timeline-mark i { width: 1px; flex: 1; min-height: 35px; background: var(--border); margin-top: 10px; }
+    .timeline-item:last-child .timeline-mark i { display: none; }
+    .timeline-content { padding: 19px 21px; border: 1px solid var(--border); border-radius: 15px; background: rgba(16,29,45,.62); margin-bottom: 3px; }
+    .timeline-content h3 { margin: 8px 0 5px; font-size: 1.05rem; }
+    .timeline-content p { margin: 0; color: var(--muted); }
+    .callout { display: flex; gap: 14px; align-items: flex-start; border: 1px solid rgba(245,195,106,.23); background: rgba(245,195,106,.055); border-radius: 14px; padding: 16px 18px; color: #d8e0e5; margin-top: 20px; font-size: .91rem; }
+    .callout strong { color: var(--amber); }
+    .contact-box { display: flex; justify-content: space-between; align-items: center; gap: 24px; border: 1px solid rgba(92,225,194,.25); border-radius: 22px; padding: clamp(24px, 5vw, 42px); background: linear-gradient(135deg, rgba(92,225,194,.08), rgba(16,29,45,.85) 50%); }
+    .contact-box p { color: var(--muted); max-width: 600px; margin-bottom: 0; }
+    footer { border-top: 1px solid var(--border); padding: 25px 0; color: var(--muted); font-size: .86rem; }
+    .footer-row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .small-note { color: var(--muted); font-size: .83rem; margin-top: 18px; }
+    @media (max-width: 850px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+      .grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .nav-links { gap: 12px; }
+    }
+    @media (max-width: 620px) {
+      .container { width: min(var(--max), calc(100% - 28px)); }
+      .hero { padding: 65px 0 45px; }
+      section { padding: 45px 0; }
+      .grid, .skills-grid { grid-template-columns: 1fr; }
+      nav { min-height: 65px; flex-wrap: wrap; padding: 12px 0; }
+      .menu-toggle { display: block; }
+      .nav-links { display: none; width: 100%; padding: 8px 0 4px; }
+      .nav-links.open { display: flex; }
+      .nav-links a { width: calc(50% - 10px); }
+      .contact-box { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav class="container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Portfolio home">
+        <span class="brand-mark">⌘</span><span>Rihan Chauhan<span style="color:var(--teal)">.sec</span></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menu ☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#learning">Learning</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <header class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Aspiring SOC Analyst · Blue Team</div>
+          <h1>Investigate.<br><span>Detect.</span> Defend.</h1>
+          <p class="lead">I’m building practical cybersecurity skills through hands-on labs and small security projects, with a focus on log analysis, threat intelligence, network investigations, and digital forensics.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-secondary" href="#contact">Contact me</a>
+          </div>
+        </div>
+        <aside class="status-card" aria-label="Current focus">
+          <div class="terminal-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span style="margin-left:8px">analyst-notes.txt</span></div>
+          <div class="terminal-body">
+            <div><span class="prompt">$</span> whoami</div>
+            <div class="value">aspiring_soc_analyst</div>
+            <br />
+            <div><span class="prompt">focus:</span></div>
+            <div>├─ SIEM &amp; log analysis</div>
+            <div>├─ Network investigations</div>
+            <div>├─ Threat intelligence</div>
+            <div>└─ Digital forensics</div>
+            <br />
+            <div class="comment"># learn by investigating, not just watching</div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">01 / About</div>
+          <h2>Learning cybersecurity by doing the work.</h2>
+          <p class="section-desc">My goal is to grow into a SOC Analyst role by practicing investigations, learning how to interpret evidence, and documenting what I discover. I value repeatable methods, careful analysis, and being honest about what I know—and what I still need to practice.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="icon-box">⌕</div>
+            <h3>Investigative mindset</h3>
+            <p>Practice tracing activity through logs, event records, and network traffic rather than relying on assumptions.</p>
+          </article>
+          <article class="card">
+            <div class="icon-box">⌘</div>
+            <h3>Hands-on learning</h3>
+            <p>Use guided labs and practical exercises to build familiarity with analyst workflows and security tools.</p>
+          </article>
+          <article class="card">
+            <div class="icon-box">↗</div>
+            <h3>Document the evidence</h3>
+            <p>Turn lab work into clear notes: what was observed, how it was checked, and what conclusions the evidence supports.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">02 / Technical toolkit</div>
+          <h2>Skills I’m building</h2>
+          <p class="section-desc">A practical snapshot of tools and topics explored so far. This is a learning portfolio, not a claim of professional experience.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="card">
+            <h3>Security monitoring &amp; SIEM</h3>
+            <div class="skill-line"><span>Splunk / SPL basics</span><span>Practiced in labs</span></div>
+            <div class="skill-line"><span>Searching logs and fields</span><span>Practiced</span></div>
+            <div class="skill-line"><span>Dashboards, reports, alerts</span><span>Explored</span></div>
+            <div class="skill-line"><span>Investigation workflow</span><span>Developing</span></div>
+          </article>
+          <article class="card">
+            <h3>Network analysis</h3>
+            <div class="skill-line"><span>Wireshark &amp; PCAPs</span><span>Practiced</span></div>
+            <div class="skill-line"><span>tcpdump / tshark</span><span>Practiced</span></div>
+            <div class="skill-line"><span>DNS, UDP, TLS, SNI</span><span>Studied in labs</span></div>
+            <div class="skill-line"><span>Traffic and C2 investigation</span><span>Lab exposure</span></div>
+          </article>
+          <article class="card">
+            <h3>Threat intelligence &amp; detection</h3>
+            <div class="skill-line"><span>VirusTotal</span><span>Used in labs</span></div>
+            <div class="skill-line"><span>MITRE ATT&amp;CK</span><span>Room completed</span></div>
+            <div class="skill-line"><span>YARA</span><span>Room completed</span></div>
+            <div class="skill-line"><span>MISP</span><span>Room completed</span></div>
+          </article>
+          <article class="card">
+            <h3>Host analysis &amp; forensics</h3>
+            <div class="skill-line"><span>Windows event logs / Sysmon</span><span>Lab practice</span></div>
+            <div class="skill-line"><span>Linux process &amp; network analysis</span><span>Rooms completed</span></div>
+            <div class="skill-line"><span>Digital forensics</span><span>Coursework completed; practice ongoing</span></div>
+            <div class="skill-line"><span>Email / file analysis</span><span>Project and labs</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">03 / Projects &amp; lab work</div>
+          <h2>Work worth exploring</h2>
+          <p class="section-desc">Add sanitized screenshots, write-ups, queries, and lessons learned to each entry. Link only to repositories or reports that are ready to share publicly.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <span class="status project">Personal project</span>
+            <h3>Phishing Email Analyzer</h3>
+            <p>A Python-based analyzer with a Streamlit interface. Document its supported checks, sample input, output, and limitations; avoid claiming detection accuracy without testing.</p>
+            <div class="tag-row"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Email security</span></div>
+            <p style="margin-top:16px"><span class="small-note">Repository link to be added when published.</span></p>
+          </article>
+          <article class="card">
+            <span class="status done">Lab practice completed</span>
+            <h3>Splunk Log Analysis</h3>
+            <p>Explored SPL searches, fields, dashboards, reports, and alerts; worked with log data and guided investigation challenges. Publish a sanitized case study showing the query, evidence, and conclusion.</p>
+            <div class="tag-row"><span class="tag">Splunk</span><span class="tag">SPL</span><span class="tag">Log analysis</span></div>
+            <p style="margin-top:16px"><span class="small-note">Write-up link to be added when published.</span></p>
+          </article>
+          <article class="card">
+            <span class="status done">Lab practice completed</span>
+            <h3>Network Traffic Investigation</h3>
+            <p>Practiced examining packet captures with Wireshark, tcpdump, and tshark; explored DNS, UDP payloads, TLS/SNI, and suspicious communication patterns.</p>
+            <div class="tag-row"><span class="tag">Wireshark</span><span class="tag">PCAP</span><span class="tag">tcpdump</span></div>
+            <p style="margin-top:16px"><span class="small-note">Write-up link to be added when published.</span></p>
+          </article>
+          <article class="card">
+            <span class="status done">Learning module completed</span>
+            <h3>Threat Intelligence &amp; YARA</h3>
+            <p>Completed threat-intelligence learning and TryHackMe rooms covering MITRE ATT&amp;CK and YARA. Next, strengthen this section with a documented indicator-enrichment or rule-writing exercise.</p>
+            <div class="tag-row"><span class="tag">MITRE ATT&amp;CK</span><span class="tag">YARA</span><span class="tag">IOC research</span></div>
+            <p style="margin-top:16px"><span class="small-note">Notes link to be added when published.</span></p>
+          </article>
+          <article class="card">
+            <span class="status done">Lab practice completed</span>
+            <h3>Windows &amp; Linux Host Analysis</h3>
+            <p>Worked through host-investigation labs involving Windows event logs, Sysmon, persistence-related artifacts, Linux processes, and network activity.</p>
+            <div class="tag-row"><span class="tag">Windows</span><span class="tag">Sysmon</span><span class="tag">Linux</span></div>
+            <p style="margin-top:16px"><span class="small-note">Write-up link to be added when published.</span></p>
+          </article>
+          <article class="card">
+            <span class="status progress">In progress</span>
+            <h3>Digital Forensics Portfolio</h3>
+            <p>Build case studies around file metadata, timelines, disk-image analysis, and evidence handling. Publish only exercises actually completed and clearly label guided walkthroughs.</p>
+            <div class="tag-row"><span class="tag">Forensics</span><span class="tag">Evidence</span><span class="tag">Case notes</span></div>
+            <p style="margin-top:16px"><span class="small-note">Case-study link to be added when published.</span></p>
+          </article>
+        </div>
+        <div class="callout"><span aria-hidden="true">⚠</span><div><strong>Publishing note:</strong> Add repository and write-up links when they are public and ready. Never publish credentials, challenge flags, private IPs, sensitive logs, or other restricted lab material.</div></div>
+      </div>
+    </section>
+
+    <section id="learning">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">04 / Learning journey</div>
+          <h2>Progress, with clear labels.</h2>
+          <p class="section-desc">A current snapshot based on the work recorded so far. Course completion means the learning material was completed; it does not by itself prove independent mastery.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-mark"><span></span><i></i></div>
+            <div class="timeline-content"><span class="status done">Completed</span><h3>Network analysis labs</h3><p>Practiced packet capture analysis, traffic inspection, and network-focused investigation tasks.</p></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-mark"><span></span><i></i></div>
+            <div class="timeline-content"><span class="status done">Completed</span><h3>Windows and Linux investigation rooms</h3><p>Completed multiple TryHackMe host-analysis rooms, including Windows artifacts and Linux process/network analysis.</p></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-mark"><span></span><i></i></div>
+            <div class="timeline-content"><span class="status done">Completed</span><h3>Threat intelligence coursework</h3><p>Completed the TCM threat-intelligence course content and explored MITRE ATT&amp;CK and YARA through practical rooms.</p></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-mark"><span></span><i></i></div>
+            <div class="timeline-content"><span class="status done">Explored</span><h3>Splunk fundamentals and investigations</h3><p>Imported and searched logs, practiced SPL, and explored dashboards, reports, alerts, and guided investigation challenges.</p></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-mark"><span></span><i></i></div>
+            <div class="timeline-content"><span class="status progress">Current direction</span><h3>SOC practice and digital forensics</h3><p>TryHackMe SOC Level 2 is ongoing. Completed Exploring Splunk 1, Universal Forwarder setup, PsExecHunt, and CyberDefenders Splunk practice. Continue with practical investigations and document evidence in case studies.</p></div>
+          </div>
+        </div>
+        <p class="small-note">Certification status: no certification is claimed here. Add a certification only after it has been earned, with a verification link if available.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <div class="eyebrow">05 / Contact</div>
+            <h2>Let’s connect.</h2>
+            <p>I’m working toward an entry-level SOC / blue-team opportunity and welcome feedback, collaboration, and conversations about practical security investigations.</p>
+            <p class="small-note">Email: rihanchauhan883@gmail.com · Location: India</p>
+          </div>
+          <div class="hero-actions" style="margin-top:0">
+            <a class="btn btn-primary" href="mailto:rihanchauhan883@gmail.com">Email me ↗</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/rihan-chauhan-376a85394/">LinkedIn</a>
+            <a class="btn btn-secondary" href="https://github.com/rihanchauhan883-cpu">GitHub</a>
+            <a class="btn btn-secondary" href="https://tryhackme.com/p/ashcleoz">TryHackMe</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <span>© <span id="year"></span> Rihan Chauhan. Built for continuous learning.</span>
+      <span>Curiosity · Evidence · Continuous improvement</span>
+    </div>
+  </footer>
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    links.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
