@@ -1,43 +1,41 @@
-# SOC Analyst Portfolio Proofs
+# Cybersecurity Portfolio Proofs
 
-This folder tracks hands-on work that has been completed and identifies the evidence still needed to make each item independently verifiable. **A completed room or lab is not the same as a published case study.** Add your own sanitized screenshots, query notes, and findings before marking an item evidence-complete.
+This index links public evidence for hands-on cybersecurity work. Lab completion and a published proof are distinct; keep descriptions accurate and add only sanitized material you are allowed to share.
 
-## Completed work — evidence to collect
+## 1. Boss of the Splunk
+- **Status:** Splunk challenge/practice documented.
+- **Focus:** SIEM investigation and SPL-based log analysis.
+- **Public proof:** https://lnkd.in/p/gNfWxMAE
+- **Next evidence to add:** Sanitized SPL query, explanation of the search logic, key observations, and conclusion.
 
-### 1. Splunk fundamentals — TryHackMe: Exploring Splunk 1
-- **Status:** Lab completed (reported 25 October 2026)
-- **Skills:** Searching indexed data, exploring fields, basic SPL investigation workflow.
-- **Evidence to add:** Screenshot of completed room/task progress; one sanitized SPL query; a short explanation of what the query returned.
-- **Case-study file:** `splunk-exploring-splunk-1.md` (create after collecting evidence).
+## 2. PCAP Files Analysis
+- **Status:** Public LinkedIn post shared.
+- **Focus:** Network traffic / packet-capture analysis.
+- **Public proof:** https://lnkd.in/p/g5cATAYT
+- **Next evidence to add:** Sanitized Wireshark screenshots, useful filters, packet observations, and a short evidence-based conclusion.
 
-### 2. Splunk Universal Forwarder — home lab
+## 3. CTF Achievement
+- **Status:** CTF win/achievement shared in the same LinkedIn post.
+- **Public proof:** https://lnkd.in/p/g5cATAYT
+- **Next evidence to add:** Event or competition name, team/individual context, date, and publicly shareable result details, if not already present in the post.
+
+## 4. Splunk Universal Forwarder — home lab
 - **Status:** Setup completed; Windows events were reported arriving in Splunk.
-- **Skills:** Forwarding endpoint telemetry to a central SIEM; validating ingestion.
-- **Evidence to add:** Sanitized screenshot of the forwarder configuration, Splunk search results showing incoming Windows events, and the relevant source/sourcetype. Hide usernames, tokens, public IPs, and other sensitive values.
-- **Case-study file:** `splunk-universal-forwarder.md` (create after collecting evidence).
+- **Focus:** Forwarding endpoint telemetry to a central SIEM and validating ingestion.
+- **Evidence to add:** Sanitized screenshot of Splunk search results showing incoming Windows events and their source/sourcetype, plus a short explanation of the validation steps.
 
-### 3. PsExecHunt — investigation lab
-- **Status:** Completed (reported 26 October 2026).
-- **Skills:** Investigating PsExec-related activity and correlating endpoint evidence.
-- **Evidence to add:** Completion screenshot, key event IDs/fields, the investigation query or steps, and a concise conclusion based on observed evidence.
-- **Case-study file:** `psexechunt-investigation.md` (create after collecting evidence).
+## 5. TryHackMe — Exploring Splunk 1
+- **Status:** Lab completed.
+- **Focus:** Exploring indexed data, fields, and basic SPL investigation workflow.
+- **Evidence to add:** Completion screenshot, a sanitized SPL query, and what the result showed.
 
-### 4. CyberDefenders — Splunk practice
-- **Status:** Completed (reported 26 October 2026).
-- **Skills:** SIEM-based investigation and interpreting log evidence.
-- **Evidence to add:** Lab completion proof, the scenario name, sanitized query/analysis notes, and the finding explained in your own words. Do not publish challenge flags or restricted challenge content.
-- **Case-study file:** `cyberdefenders-splunk-case.md` (create after collecting evidence).
-
-## Evidence checklist for every case study
-
-- [ ] State the lab/scenario name and date completed.
-- [ ] Describe the investigation question.
+## Evidence checklist
+- [ ] Name the lab or challenge and date completed.
+- [ ] Explain the investigation question and approach.
 - [ ] Include only sanitized screenshots or sample data you are permitted to share.
-- [ ] Explain the query/commands and why they were used.
-- [ ] Record the observed evidence and the conclusion it supports.
-- [ ] Add limitations or what you would investigate next.
-- [ ] Remove credentials, tokens, challenge flags, private IPs, personal data, and restricted lab content.
-- [ ] Link the finished case study from the portfolio homepage.
+- [ ] Explain relevant queries/commands and the observed evidence.
+- [ ] State what the evidence supports and any limitations.
+- [ ] Remove credentials, tokens, challenge flags, private IPs, personal data, and restricted content.
+- [ ] Link the case study from the portfolio homepage.
 
-## Important
-This tracker records work reported as completed; it does **not** fabricate screenshots, logs, findings, or independent verification. Add the actual evidence before presenting a case study as fully documented.
+This index records the work described by the portfolio owner; it does not claim independent verification. Add actual screenshots, queries, and findings before describing an item as a fully documented case study.
