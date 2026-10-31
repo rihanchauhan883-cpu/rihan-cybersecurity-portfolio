@@ -84,24 +84,11 @@
     .tag { padding: 5px 9px; border: 1px solid var(--border); border-radius: 999px; color: #c8d8e1; font-size: .76rem; }
     .status { display: inline-flex; align-items: center; gap: 7px; border-radius: 999px; padding: 5px 9px; font-size: .73rem; font-weight: 800; letter-spacing: .02em; }
     .status.done { color: #a8f2df; background: rgba(92,225,194,.1); }
-    .status.progress { color: #ffdda0; background: rgba(245,195,106,.1); }
-    .status.project { color: #b9d2ff; background: rgba(139,185,255,.1); }
     .skills-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
     .skill-line { display: flex; justify-content: space-between; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border); }
     .skill-line:last-child { border-bottom: 0; }
     .skill-line span:first-child { color: var(--text); }
     .skill-line span:last-child { color: var(--muted); font-size: .85rem; text-align: right; }
-    .timeline { display: grid; gap: 14px; }
-    .timeline-item { display: grid; grid-template-columns: 24px 1fr; gap: 15px; }
-    .timeline-mark { display: flex; flex-direction: column; align-items: center; }
-    .timeline-mark span { width: 11px; height: 11px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 5px rgba(92,225,194,.1); margin-top: 7px; }
-    .timeline-mark i { width: 1px; flex: 1; min-height: 35px; background: var(--border); margin-top: 10px; }
-    .timeline-item:last-child .timeline-mark i { display: none; }
-    .timeline-content { padding: 19px 21px; border: 1px solid var(--border); border-radius: 15px; background: rgba(16,29,45,.62); margin-bottom: 3px; }
-    .timeline-content h3 { margin: 8px 0 5px; font-size: 1.05rem; }
-    .timeline-content p { margin: 0; color: var(--muted); }
-    .callout { display: flex; gap: 14px; align-items: flex-start; border: 1px solid rgba(245,195,106,.23); background: rgba(245,195,106,.055); border-radius: 14px; padding: 16px 18px; color: #d8e0e5; margin-top: 20px; font-size: .91rem; }
-    .callout strong { color: var(--amber); }
     .contact-box { display: flex; justify-content: space-between; align-items: center; gap: 24px; border: 1px solid rgba(92,225,194,.25); border-radius: 22px; padding: clamp(24px, 5vw, 42px); background: linear-gradient(135deg, rgba(92,225,194,.08), rgba(16,29,45,.85) 50%); }
     .contact-box p { color: var(--muted); max-width: 600px; margin-bottom: 0; }
     footer { border-top: 1px solid var(--border); padding: 25px 0; color: var(--muted); font-size: .86rem; }
@@ -134,7 +121,7 @@
       </a>
       <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menu ☰</button>
       <div class="nav-links" id="navLinks">
-        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#learning">Learning</a><a href="#contact">Contact</a>
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
       </div>
     </nav>
   </div>
@@ -175,23 +162,6 @@
           <div class="eyebrow">01 / About</div>
           <h2>Learning cybersecurity by doing the work.</h2>
           <p class="section-desc">My goal is to grow into a SOC Analyst role by practicing investigations, learning how to interpret evidence, and documenting what I discover. I value repeatable methods, careful analysis, and being honest about what I know—and what I still need to practice.</p>
-        </div>
-        <div class="grid">
-          <article class="card">
-            <div class="icon-box">⌕</div>
-            <h3>Investigative mindset</h3>
-            <p>Practice tracing activity through logs, event records, and network traffic rather than relying on assumptions.</p>
-          </article>
-          <article class="card">
-            <div class="icon-box">⌘</div>
-            <h3>Hands-on learning</h3>
-            <p>Use guided labs and practical exercises to build familiarity with analyst workflows and security tools.</p>
-          </article>
-          <article class="card">
-            <div class="icon-box">↗</div>
-            <h3>Document the evidence</h3>
-            <p>Turn lab work into clear notes: what was observed, how it was checked, and what conclusions the evidence supports.</p>
-          </article>
         </div>
       </div>
     </section>
@@ -241,22 +211,16 @@
         <div class="section-head">
           <div class="eyebrow">03 / Projects &amp; lab work</div>
           <h2>Work worth exploring</h2>
-          <p class="section-desc">Add sanitized screenshots, write-ups, queries, and lessons learned to each entry. Link only to repositories or reports that are ready to share publicly.</p>
+          <p class="section-desc">Selected hands-on work with public evidence. More case studies will be added when documented.</p>
         </div>
         <div class="grid">
-          <article class="card">
-            <span class="status project">Personal project</span>
-            <h3>Phishing Email Analyzer</h3>
-            <p>A Python-based analyzer with a Streamlit interface. Document its supported checks, sample input, output, and limitations; avoid claiming detection accuracy without testing.</p>
-            <div class="tag-row"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Email security</span></div>
-            <p style="margin-top:16px"><span class="small-note">Repository link to be added when published.</span></p>
-          </article>
+
           <article class="card">
             <span class="status done">Lab practice completed</span>
             <h3>Boss of the Splunk</h3>
             <p>Practiced investigating security data with Splunk and documenting the analysis process. See the public LinkedIn post for the work shared.</p>
             <div class="tag-row"><span class="tag">Splunk</span><span class="tag">SPL</span><span class="tag">SOC investigation</span></div>
-            <p style="margin-top:16px"><a href="https://lnkd.in/p/gJJp265n" target="_blank" rel="noopener noreferrer">View LinkedIn proof ↗</a></p>
+            <p style="margin-top:16px"><a href="https://lnkd.in/p/gNfWxMAE" target="_blank" rel="noopener noreferrer">View LinkedIn proof ↗</a></p>
           </article>
           <article class="card">
             <span class="status done">Lab practice completed</span>
@@ -265,20 +229,8 @@
             <div class="tag-row"><span class="tag">Wireshark</span><span class="tag">PCAP</span><span class="tag">Network forensics</span></div>
             <p style="margin-top:16px"><a href="https://lnkd.in/p/g5cATAYT" target="_blank" rel="noopener noreferrer">View LinkedIn post ↗</a></p>
           </article>
-          <article class="card">
-            <span class="status done">Learning module completed</span>
-            <h3>Threat Intelligence &amp; YARA</h3>
-            <p>Completed threat-intelligence learning and TryHackMe rooms covering MITRE ATT&amp;CK and YARA. Next, strengthen this section with a documented indicator-enrichment or rule-writing exercise.</p>
-            <div class="tag-row"><span class="tag">MITRE ATT&amp;CK</span><span class="tag">YARA</span><span class="tag">IOC research</span></div>
-            <p style="margin-top:16px"><span class="small-note">Notes link to be added when published.</span></p>
-          </article>
-          <article class="card">
-            <span class="status done">Achievement</span>
-            <h3>CTF Achievement</h3>
-            <p>Documenting a completed cybersecurity CTF result. Open the LinkedIn post for the shared achievement.</p>
-            <div class="tag-row"><span class="tag">CTF</span><span class="tag">Problem solving</span><span class="tag">Cybersecurity</span></div>
-            <p style="margin-top:16px"><a href="https://lnkd.in/p/g5cATAYT" target="_blank" rel="noopener noreferrer">View LinkedIn proof ↗</a></p>
-          </article>
+
+
           <article class="card">
             <span class="status done">Evidence published</span>
             <h3>Atomic Red Team — Splunk Detections</h3>
@@ -286,55 +238,9 @@
             <div class="tag-row"><span class="tag">Atomic Red Team</span><span class="tag">Splunk</span><span class="tag">MITRE ATT&amp;CK</span></div>
             <p style="margin-top:16px"><a href="proofs/Atomic_Red_Team_Splunk_Detection_Evidence.pdf" target="_blank" rel="noopener noreferrer">View detection evidence (PDF) ↗</a></p>
           </article>
-          <article class="card">
-            <span class="status done">Lab practice completed</span>
-            <h3>Windows &amp; Linux Host Analysis</h3>
-            <p>Worked through host-investigation labs involving Windows event logs, Sysmon, persistence-related artifacts, Linux processes, and network activity.</p>
-            <div class="tag-row"><span class="tag">Windows</span><span class="tag">Sysmon</span><span class="tag">Linux</span></div>
-            <p style="margin-top:16px"><span class="small-note">Write-up link to be added when published.</span></p>
-          </article>
-          <article class="card">
-            <span class="status progress">In progress</span>
-            <h3>Digital Forensics Portfolio</h3>
-            <p>Build case studies around file metadata, timelines, disk-image analysis, and evidence handling. Publish only exercises actually completed and clearly label guided walkthroughs.</p>
-            <div class="tag-row"><span class="tag">Forensics</span><span class="tag">Evidence</span><span class="tag">Case notes</span></div>
-            <p style="margin-top:16px"><span class="small-note">Case-study link to be added when published.</span></p>
-          </article>
-        </div>
-        <div class="callout"><span aria-hidden="true">⚠</span><div><strong>Publishing note:</strong> Add repository and write-up links when they are public and ready. Never publish credentials, challenge flags, private IPs, sensitive logs, or other restricted lab material.</div></div>
-      </div>
-    </section>
 
-    <section id="learning">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">04 / Learning journey</div>
-          <h2>Progress, with clear labels.</h2>
-          <p class="section-desc">A current snapshot based on the work recorded so far. Course completion means the learning material was completed; it does not by itself prove independent mastery.</p>
+
         </div>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-mark"><span></span><i></i></div>
-            <div class="timeline-content"><span class="status done">Completed</span><h3>Network analysis labs</h3><p>Practiced packet capture analysis, traffic inspection, and network-focused investigation tasks.</p></div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-mark"><span></span><i></i></div>
-            <div class="timeline-content"><span class="status done">Completed</span><h3>Windows and Linux investigation rooms</h3><p>Completed multiple TryHackMe host-analysis rooms, including Windows artifacts and Linux process/network analysis.</p></div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-mark"><span></span><i></i></div>
-            <div class="timeline-content"><span class="status done">Completed</span><h3>Threat intelligence coursework</h3><p>Completed the TCM threat-intelligence course content and explored MITRE ATT&amp;CK and YARA through practical rooms.</p></div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-mark"><span></span><i></i></div>
-            <div class="timeline-content"><span class="status done">Explored</span><h3>Splunk fundamentals and investigations</h3><p>Imported and searched logs, practiced SPL, and explored dashboards, reports, alerts, and guided investigation challenges.</p></div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-mark"><span></span><i></i></div>
-            <div class="timeline-content"><span class="status progress">Current direction</span><h3>SOC practice and digital forensics</h3><p>TryHackMe SOC Level 2 is ongoing. Completed Exploring Splunk 1 and Universal Forwarder setup. Current focus is advanced Splunk investigations, PCAP analysis, and documenting public proof of hands-on work.</p></div>
-          </div>
-        </div>
-        <p class="small-note">Certification status: no certification is claimed here. Add a certification only after it has been earned, with a verification link if available.</p>
       </div>
     </section>
 
