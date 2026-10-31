@@ -23,6 +23,11 @@ This index links public evidence for hands-on cybersecurity work. Lab completion
 
 ## Hands-on lab reports and evidence templates
 
+### 4. Atomic Red Team — Splunk detection evidence
+- **Status:** Evidence PDF published.
+- **Focus:** Four ATT&CK-aligned tests: T1082 System Information Discovery, T1053.005 Scheduled Task, T1547.001 Registry Run Keys, and T1136.001 Local Account Creation.
+- **Evidence:** [Open the Atomic Red Team Splunk detection report (PDF)](Atomic_Red_Team_Splunk_Detection_Evidence.pdf)
+
 ### 4. Splunk Universal Forwarder — Windows-to-Splunk home lab
 - **Status:** Setup completed; Windows events were reported arriving in Splunk.
 - **Focus:** Forwarding endpoint telemetry to a central SIEM and validating ingestion.
