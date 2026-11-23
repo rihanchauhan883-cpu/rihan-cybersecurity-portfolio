@@ -113,6 +113,17 @@
       .nav-links a { width: calc(50% - 10px); }
       .contact-box { align-items: flex-start; flex-direction: column; }
     }
+  .theme-toggle{border:1px solid var(--border);background:var(--panel);color:var(--text);border-radius:999px;padding:8px 12px;cursor:pointer}
+body.light-mode{--bg:#edf4f5;--panel:#fff;--panel-2:#f4f8f8;--text:#102331;--muted:#526b78;--border:rgba(16,45,58,.16);background:var(--bg)}
+body.light-mode .nav-wrap{background:rgba(237,244,245,.9)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}.reveal.is-visible{opacity:1;transform:translateY(0)}
+.stats-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:28px}.stat-card{padding:18px;border:1px solid var(--border);border-radius:15px;background:rgba(16,29,45,.58)}
+.stat-number{display:block;color:var(--teal);font-size:1.8rem;font-weight:850;line-height:1.2}.stat-label{color:var(--muted);font-size:.84rem}
+.focus-strip{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px;color:var(--muted);font-size:.88rem}.pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(92,225,194,0)}100%{box-shadow:0 0 0 0 rgba(92,225,194,0)}}
+.project-card{display:flex;flex-direction:column}.project-card .project-actions{margin-top:auto;padding-top:16px;flex-wrap:wrap}.project-card[hidden]{display:none!important}.filter-count{align-self:center;color:var(--muted);font-size:.82rem;margin-left:auto}
+@media(max-width:620px){.stats-grid{grid-template-columns:1fr 1fr}.filter-count{width:100%;margin-left:0}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
   </style>
 </head>
 <body>
@@ -122,7 +133,7 @@
       <a class="brand" href="#home" aria-label="Portfolio home">
         <span class="brand-mark">⌘</span><span>Rihan Chauhan<span style="color:var(--teal)">.sec</span></span>
       </a>
-      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menu ☰</button>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme">☼ Theme</button><button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menu ☰</button>
       <div class="nav-links" id="navLinks">
         <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
       </div>
@@ -136,6 +147,7 @@
           <div class="eyebrow">Aspiring SOC Analyst · Blue Team</div>
           <h1>Investigate.<br><span>Detect.</span> Defend.</h1>
           <p class="lead">I’m building practical cybersecurity skills through hands-on labs and small security projects, with a focus on log analysis, threat intelligence, network investigations, and digital forensics.</p>
+          <div class="focus-strip"><span class="pulse-dot"></span><span>Current learning focus:</span><strong id="focusText" style="color:var(--text)">SOC Level 2 · Threat hunting</strong></div>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
             <a class="btn btn-secondary" href="#contact">Contact me</a>
@@ -169,6 +181,7 @@
       </div>
     </section>
 
+    <section aria-label="Portfolio snapshot" style="padding-top:0"><div class="container stats-grid"><div class="stat-card"><span class="stat-number" data-count="projects">0</span><span class="stat-label">Documented projects</span></div><div class="stat-card"><span class="stat-number" data-count="skills">0</span><span class="stat-label">Skill areas explored</span></div><div class="stat-card"><span class="stat-number" data-count="categories">0</span><span class="stat-label">Project categories</span></div></div></section>
     <section id="skills">
       <div class="container">
         <div class="section-head">
@@ -216,12 +229,12 @@
           <h2>Work worth exploring</h2>
           <p class="section-desc">Selected hands-on work with public evidence. More case studies will be added when documented.</p>
         </div>
-        <div class="project-tools"><input id="projectSearch" type="search" placeholder="Search projects or tools…" aria-label="Search projects"><button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="siem">SIEM</button><button class="filter-btn" data-filter="network">Network</button><button class="filter-btn" data-filter="threat">Threat hunting</button></div>
+        <div class="project-tools"><input id="projectSearch" type="search" placeholder="Search projects or tools…" aria-label="Search projects"><button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="siem">SIEM</button><button class="filter-btn" data-filter="network">Network</button><button class="filter-btn" data-filter="threat">Threat hunting</button><span class="filter-count" id="filterCount" aria-live="polite"></span></div>
         <div class="empty-state" id="emptyProjects">No projects match your search. Try another keyword or category.</div>
         <div class="grid" id="projectGrid">
           <article class="card project-card" data-category="threat" data-search="volt typhoon threat hunt splunk powershell wmi mitre attack"><span class="status done">Write-up published</span><h3>TryHackMe — Volt Typhoon Threat Hunt</h3><p>Threat-hunting investigation covering account activity, WMI discovery, PowerShell, credential access, data staging, and defence evasion.</p><div class="tag-row"><span class="tag">Splunk</span><span class="tag">Threat hunting</span><span class="tag">MITRE ATT&amp;CK</span></div><div class="project-actions"><a href="proofs/tryhackme-volt-typhoon-threat-hunt.md">Read case study ↗</a><a href="https://www.linkedin.com/feed/update/urn:li:activity:7530527920914890753/" target="_blank" rel="noopener noreferrer">View LinkedIn proof ↗</a><button class="text-btn" data-details type="button">Quick view</button></div></article>
 
-          <article class="card">
+          <article class="card project-card" data-category="network" data-search="pcap wireshark network traffic analysis forensics">
             <span class="status done">Lab practice completed</span>
             <h3>PCAP Files Analysis</h3>
             <p>Shared a network-traffic analysis write-up focused on investigating packet-capture evidence. Use the LinkedIn post as the public proof of this work.</p>
@@ -230,7 +243,7 @@
           </article>
 
 
-          <article class="card">
+          <article class="card project-card" data-category="siem" data-search="atomic red team splunk detections mitre attack windows">
             <span class="status done">Evidence published</span>
             <h3>Atomic Red Team — Splunk Detections</h3>
             <p>Documented four ATT&amp;CK-aligned tests in a Windows-to-Splunk lab: system information discovery, scheduled task creation, registry run-key persistence, and local account creation. Includes execution, detection, event-log, and cleanup evidence.</p>
@@ -283,9 +296,17 @@
     }));
     document.getElementById('year').textContent = new Date().getFullYear();
     const cards=[...document.querySelectorAll('.project-card')], search=document.getElementById('projectSearch'); let filter='all';
-    function applyFilters(){let n=0;cards.forEach(c=>{const ok=(filter==='all'||c.dataset.category===filter)&&(!search.value||((c.dataset.search+' '+c.innerText).toLowerCase().includes(search.value.toLowerCase())));c.hidden=!ok;if(ok)n++;});document.getElementById('emptyProjects').style.display=n?'none':'block';}
-    search.addEventListener('input',applyFilters);document.querySelectorAll('.filter-btn').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;document.querySelectorAll('.filter-btn').forEach(x=>x.classList.toggle('active',x===b));applyFilters();}));
-    const modal=document.getElementById('projectModal');document.querySelector('[data-details]').addEventListener('click',()=>modal.classList.add('open'));document.getElementById('modalClose').addEventListener('click',()=>modal.classList.remove('open'));modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open');});document.addEventListener('keydown',e=>{if(e.key==='Escape')modal.classList.remove('open');});
+    const filterCount=document.getElementById('filterCount');
+    function applyFilters(){let n=0;cards.forEach(c=>{const categoryOk=filter==='all'||c.dataset.category===filter;const text=(c.dataset.search||c.innerText).toLowerCase();const searchOk=!search.value||text.includes(search.value.toLowerCase());const ok=categoryOk&&searchOk;c.hidden=!ok;if(ok)n++;});document.getElementById('emptyProjects').style.display=n?'none':'block';if(filterCount)filterCount.textContent=n+' of '+cards.length+' projects';}
+    search.addEventListener('input',applyFilters);document.querySelectorAll('.filter-btn').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;document.querySelectorAll('.filter-btn').forEach(x=>x.classList.toggle('active',x===b));applyFilters();}));applyFilters();
+    const modal=document.getElementById('projectModal');document.addEventListener('click',e=>{if(e.target.closest('[data-details]'))modal.classList.add('open');});document.getElementById('modalClose').addEventListener('click',()=>modal.classList.remove('open'));modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open');});document.addEventListener('keydown',e=>{if(e.key==='Escape')modal.classList.remove('open');});
+    const revealTargets=document.querySelectorAll('section,.hero-grid,.project-card,.skills-grid .card');revealTargets.forEach(el=>el.classList.add('reveal'));
+    if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}}),{threshold:.12});revealTargets.forEach(el=>observer.observe(el));}else{revealTargets.forEach(el=>el.classList.add('is-visible'));}
+    const stats={projects:cards.length,skills:document.querySelectorAll('#skills .skills-grid .card').length,categories:new Set(cards.map(c=>c.dataset.category).filter(Boolean)).size};
+    if('IntersectionObserver' in window){const statObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){const el=entry.target,target=stats[el.dataset.count]||0;let value=0;const step=Math.max(1,Math.ceil(target/25));const timer=setInterval(()=>{value=Math.min(target,value+step);el.textContent=value;if(value>=target)clearInterval(timer);},35);statObserver.unobserve(el);}}),{threshold:.5});document.querySelectorAll('[data-count]').forEach(el=>statObserver.observe(el));}
+    const themeButton=document.getElementById('themeToggle');if(themeButton){if(localStorage.getItem('portfolio-theme')==='light')document.body.classList.add('light-mode');const updateThemeLabel=()=>themeButton.textContent=document.body.classList.contains('light-mode')?'☾ Dark':'☼ Light';updateThemeLabel();themeButton.addEventListener('click',()=>{document.body.classList.toggle('light-mode');localStorage.setItem('portfolio-theme',document.body.classList.contains('light-mode')?'light':'dark');updateThemeLabel();});}
+    const focusItems=['SOC Level 2 · Threat hunting','SIEM · Splunk investigations','Host analysis · Windows & Linux','Network traffic · PCAP analysis'];let focusIndex=0;setInterval(()=>{const node=document.getElementById('focusText');if(node){focusIndex=(focusIndex+1)%focusItems.length;node.textContent=focusItems[focusIndex];}},4200);
+    const navSections=[...document.querySelectorAll('main section[id]')],navAnchors=[...document.querySelectorAll('.nav-links a')];if('IntersectionObserver' in window){const navObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)navAnchors.forEach(a=>a.style.color=a.getAttribute('href')==='#'+entry.target.id?'var(--teal)':'var(--muted)');}),{rootMargin:'-35% 0px -55% 0px'});navSections.forEach(s=>navObserver.observe(s));}
     const bar=document.getElementById('scrollProgress'),topBtn=document.getElementById('backTop');window.addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-innerHeight;bar.style.width=(max?scrollY/max*100:0)+'%';topBtn.classList.toggle('visible',scrollY>500);},{passive:true});topBtn.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
   </script>
 </body>
