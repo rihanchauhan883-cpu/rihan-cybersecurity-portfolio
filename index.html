@@ -94,6 +94,8 @@
     footer { border-top: 1px solid var(--border); padding: 25px 0; color: var(--muted); font-size: .86rem; }
     .footer-row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
     .small-note { color: var(--muted); font-size: .83rem; margin-top: 18px; }
+    .project-tools{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 20px}.project-tools input{flex:1 1 220px;padding:11px;border:1px solid var(--border);border-radius:11px;background:var(--panel);color:var(--text);font:inherit}.filter-btn,.text-btn{border:1px solid var(--border);border-radius:999px;padding:9px 13px;color:var(--muted);background:transparent;cursor:pointer}.filter-btn.active,.filter-btn:hover{background:var(--teal);color:#06221e}.project-card{transition:transform .2s,border-color .2s}.project-card:hover{transform:translateY(-4px);border-color:var(--teal)}.project-card[hidden]{display:none}.project-actions{display:flex;gap:14px;align-items:center;margin-top:16px}.text-btn{border:0;color:var(--teal);font-weight:700}.empty-state{display:none;color:var(--muted);padding:18px;border:1px dashed var(--border);border-radius:14px}.scroll-progress{position:fixed;z-index:20;top:0;left:0;height:3px;width:0;background:var(--teal)}.back-top{position:fixed;right:20px;bottom:20px;z-index:15;display:none;border:0;border-radius:50%;width:44px;height:44px;background:var(--teal);cursor:pointer}.back-top.visible{display:block}.modal-backdrop{position:fixed;inset:0;z-index:30;display:none;place-items:center;padding:20px;background:#000b}.modal-backdrop.open{display:grid}.modal{width:min(600px,100%);padding:25px;border:1px solid var(--border);border-radius:18px;background:var(--panel)}.modal button{float:right;background:transparent;color:var(--text);border:1px solid var(--border);padding:7px 10px;border-radius:8px;cursor:pointer}
+
     @media (max-width: 850px) {
       .hero-grid { grid-template-columns: 1fr; gap: 30px; }
       .grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
@@ -114,6 +116,7 @@
   </style>
 </head>
 <body>
+  <div class="scroll-progress" id="scrollProgress"></div>
   <div class="nav-wrap">
     <nav class="container" aria-label="Main navigation">
       <a class="brand" href="#home" aria-label="Portfolio home">
@@ -213,7 +216,9 @@
           <h2>Work worth exploring</h2>
           <p class="section-desc">Selected hands-on work with public evidence. More case studies will be added when documented.</p>
         </div>
-        <div class="grid">
+        <div class="project-tools"><input id="projectSearch" type="search" placeholder="Search projects or tools…" aria-label="Search projects"><button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="siem">SIEM</button><button class="filter-btn" data-filter="network">Network</button><button class="filter-btn" data-filter="threat">Threat hunting</button></div>
+        <div class="grid" id="projectGrid">
+          <article class="card project-card" data-category="threat" data-search="volt typhoon threat hunt splunk powershell wmi mitre attack"><span class="status done">Write-up published</span><h3>TryHackMe — Volt Typhoon Threat Hunt</h3><p>Threat-hunting investigation covering account activity, WMI discovery, PowerShell, credential access, data staging, and defence evasion.</p><div class="tag-row"><span class="tag">Splunk</span><span class="tag">Threat hunting</span><span class="tag">MITRE ATT&amp;CK</span></div><div class="project-actions"><a href="proofs/tryhackme-volt-typhoon-threat-hunt.md">Read case study ↗</a><button class="text-btn" data-details type="button">Quick view</button></div></article>
 
           <article class="card">
             <span class="status done">Lab practice completed</span>
@@ -264,6 +269,7 @@
     </section>
   </main>
 
+  <div class="modal-backdrop" id="projectModal" role="dialog" aria-modal="true"><div class="modal"><button id="modalClose" type="button" aria-label="Close">✕</button><h2>Volt Typhoon — investigation snapshot</h2><p>Lab-based threat hunt examining suspicious account activity, WMI discovery, encoded PowerShell, credential-access indicators, data staging, archive creation, and cleanup.</p><p><b>Tools:</b> Splunk, CyberChef, MITRE ATT&amp;CK.</p><a href="proofs/tryhackme-volt-typhoon-threat-hunt.md">Open full case study ↗</a><p class="small-note">Training-lab investigation, not professional incident-response experience.</p></div></div><button class="back-top" id="backTop" aria-label="Back to top">↑</button>
   <footer>
     <div class="container footer-row">
       <span>© <span id="year"></span> Rihan Chauhan. Built for continuous learning.</span>
@@ -282,6 +288,11 @@
       toggle.setAttribute('aria-expanded', 'false');
     }));
     document.getElementById('year').textContent = new Date().getFullYear();
+    const cards=[...document.querySelectorAll('.project-card')], search=document.getElementById('projectSearch'); let filter='all';
+    function applyFilters(){let n=0;cards.forEach(c=>{const ok=(filter==='all'||c.dataset.category===filter)&&(!search.value||((c.dataset.search+' '+c.innerText).toLowerCase().includes(search.value.toLowerCase())));c.hidden=!ok;if(ok)n++;});document.getElementById('emptyProjects').style.display=n?'none':'block';}
+    search.addEventListener('input',applyFilters);document.querySelectorAll('.filter-btn').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;document.querySelectorAll('.filter-btn').forEach(x=>x.classList.toggle('active',x===b));applyFilters();}));
+    const modal=document.getElementById('projectModal');document.querySelector('[data-details]').addEventListener('click',()=>modal.classList.add('open'));document.getElementById('modalClose').addEventListener('click',()=>modal.classList.remove('open'));modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open');});document.addEventListener('keydown',e=>{if(e.key==='Escape')modal.classList.remove('open');});
+    const bar=document.getElementById('scrollProgress'),topBtn=document.getElementById('backTop');window.addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-innerHeight;bar.style.width=(max?scrollY/max*100:0)+'%';topBtn.classList.toggle('visible',scrollY>500);},{passive:true});topBtn.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
   </script>
 </body>
 </html>
