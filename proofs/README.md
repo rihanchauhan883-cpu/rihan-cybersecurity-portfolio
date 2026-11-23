@@ -21,6 +21,12 @@ This index links public evidence for hands-on cybersecurity work. Lab completion
 - **Public proof:** https://lnkd.in/p/g5cATAYT
 - **Next evidence:** Event or competition name, team/individual context, date, and publicly shareable result details.
 
+### 8. TryHackMe — Volt Typhoon Threat Hunt
+- **Status:** Investigation documented in a sanitized case study.
+- **Focus:** ADSelfService Plus account takeover, Splunk log correlation, WMIC discovery, PowerShell analysis, credential access, data staging, lateral movement, and defence evasion.
+- **Report:** [Open the Volt Typhoon threat-hunt write-up](tryhackme-volt-typhoon-threat-hunt.md)
+- **Tools:** Splunk and CyberChef.
+
 ## Hands-on lab reports and evidence templates
 
 ### 4. Atomic Red Team — Splunk detection evidence
